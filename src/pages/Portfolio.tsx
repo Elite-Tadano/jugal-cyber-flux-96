@@ -121,22 +121,17 @@ export default function Portfolio() {
           
           {/* Left Side - Purple Card with Code Snippet */}
           <div className="relative max-w-md mx-auto lg:mx-0">
-            {/* Corner Numbers in White Boxes */}
-            <div className="absolute -top-6 -left-6 z-30 flex gap-4">
-              <div className="border-2 border-white/60 px-3 py-1 text-white text-lg font-mono bg-black/20 backdrop-blur-sm">
-                01
-              </div>
-              <div className="border-2 border-white/60 px-3 py-1 text-white text-lg font-mono bg-black/20 backdrop-blur-sm">
-                ro
-              </div>
+            {/* Corner Numbers */}
+            <div className="absolute -top-12 -left-4 text-white text-2xl font-mono opacity-60 z-20">
+              01
+            </div>
+            <div className="absolute -top-12 -right-4 text-white text-2xl font-mono opacity-60 z-20">
+              ro
             </div>
             
-            {/* Purple Organic Shaped Card with Code Snippet */}
+            {/* Purple Rounded Card with Code Snippet */}
             <motion.div 
-              className="bg-gradient-to-br from-purple-600 to-purple-800 h-[500px] relative overflow-hidden shadow-2xl"
-              style={{
-                clipPath: 'polygon(15% 0%, 85% 0%, 100% 25%, 100% 75%, 85% 100%, 15% 100%, 0% 75%, 0% 25%)'
-              }}
+              className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-3xl h-[500px] relative overflow-hidden shadow-2xl"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -173,7 +168,7 @@ export default function Portfolio() {
                   <span className="block">HEY</span>
                   <span className="block">THIS</span>
                   <span className="block">IS</span>
-                  <span className="block text-white">
+                  <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                     JUGAL
                   </span>
                 </h1>
@@ -192,13 +187,10 @@ export default function Portfolio() {
             </AnimatedText>
 
             <AnimatedText delay={1.2}>
-              <p className="text-lg md:text-xl lg:text-2xl font-medium text-white mt-4">
-                <span className="font-bold">I GO BY</span> Creati@&lt; Developer
+              <p className="text-lg md:text-xl lg:text-2xl font-medium text-primary mt-4">
+                I GO BY SOC Analyst & Developer
               </p>
             </AnimatedText>
-
-            {/* Dark 3D Sphere */}
-            <div className="absolute top-20 right-20 w-8 h-8 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full shadow-lg border border-gray-600"></div>
 
             {/* Scroll Indicator - Below the analyst text */}
             <AnimatedText delay={1.6}>
@@ -227,8 +219,8 @@ export default function Portfolio() {
 
             {/* Small geometric icon - positioned relative to right side */}
             <div className="absolute -top-8 -right-4 lg:-right-8">
-              <div className="w-10 h-10 border border-white/30 flex items-center justify-center" style={{clipPath: 'polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%)'}}>
-                <span className="text-white text-xs font-mono">W.</span>
+              <div className="w-10 h-10 border border-white/30 rounded transform rotate-45 flex items-center justify-center">
+                <span className="text-white text-xs transform -rotate-45 font-mono">W.</span>
               </div>
             </div>
 
