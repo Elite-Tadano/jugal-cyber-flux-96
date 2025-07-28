@@ -161,41 +161,90 @@ export default function Portfolio() {
           </div>
 
           {/* Right Side - Large Text */}
-          <div className="space-y-6 relative">
+          <div className="space-y-8 relative">
             <AnimatedText delay={0.4}>
-              <div className="space-y-1">
-                <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight leading-[0.85] text-white">
-                  <span className="block">HEY</span>
-                  <span className="block">THIS</span>
-                  <span className="block">IS</span>
-                  <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <div className="space-y-2 relative">
+                <div className="absolute -left-8 top-0 text-white/20 text-8xl font-mono">
+                  &lt;
+                </div>
+                <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight leading-[0.85] text-white relative z-10">
+                  <span className="block opacity-90">HEY</span>
+                  <span className="block opacity-95">THIS</span>
+                  <span className="block opacity-100 flex items-center">
+                    IS
+                    <span className="ml-4 w-12 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+                  </span>
+                  <span className="block text-white font-black relative">
                     JUGAL
+                    <div className="absolute -right-4 top-4 w-3 h-3 bg-cyan-400 rounded-full animate-pulse"></div>
                   </span>
                 </h1>
+                <div className="absolute -right-8 bottom-0 text-white/20 text-8xl font-mono">
+                  /&gt;
+                </div>
               </div>
             </AnimatedText>
 
             <AnimatedText delay={0.8}>
-              <div className="space-y-1 mt-6">
-                <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
-                  THAT CYBERSECURITY
-                </p>
-                <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
-                  ANALYST
-                </p>
+              <div className="space-y-3 mt-12 relative">
+                <div className="flex items-center gap-4">
+                  <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-600 rounded-full shadow-lg relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full transform scale-75 opacity-60"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-300 to-blue-400 rounded-full transform scale-50 opacity-40"></div>
+                  </div>
+                  <div className="h-0.5 w-16 bg-gradient-to-r from-primary to-transparent"></div>
+                </div>
+                
+                <div className="bg-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/10 relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500"></div>
+                  
+                  <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-wide leading-tight">
+                    <span className="text-cyan-400 font-mono text-lg">&gt;</span>
+                    <span className="ml-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                      THAT CYBERSECURITY
+                    </span>
+                  </p>
+                  <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-wide mt-2">
+                    <span className="text-cyan-400 font-mono text-lg">&gt;</span>
+                    <span className="ml-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                      ANALYST
+                    </span>
+                  </p>
+                  
+                  <div className="mt-6 flex items-center gap-3">
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                    </div>
+                    <div className="text-cyan-400 font-mono text-sm opacity-70">
+                      status: active
+                    </div>
+                  </div>
+                </div>
               </div>
             </AnimatedText>
 
             <AnimatedText delay={1.2}>
-              <p className="text-lg md:text-xl lg:text-2xl font-medium text-primary mt-4">
-                I GO BY SOC Analyst & Developer
-              </p>
+              <div className="relative">
+                <p className="text-lg md:text-xl lg:text-2xl font-medium text-white/80 mt-6 font-mono">
+                  <span className="text-cyan-400">[</span>
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">
+                    I GO BY
+                  </span>
+                  <span className="text-cyan-400">]</span>
+                  <span className="ml-2 text-white">SOC Analyst</span>
+                  <span className="text-cyan-400"> &amp; </span>
+                  <span className="text-white">Developer</span>
+                </p>
+                <div className="mt-2 w-32 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent"></div>
+              </div>
             </AnimatedText>
 
             {/* Scroll Indicator - Below the analyst text */}
             <AnimatedText delay={1.6}>
               <motion.div 
-                className="mt-8"
+                className="mt-12"
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
