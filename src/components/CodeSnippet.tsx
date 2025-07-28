@@ -4,32 +4,61 @@ import { useState, useEffect } from 'react';
 const codeSnippets = [
   {
     language: 'python',
-    title: 'Threat Detection',
-    code: `# SOC Threat Hunter
-def analyze_logs(event_data):
-    if detect_anomaly(event_data):
-        alert = create_alert()
-        escalate_incident(alert)
-        return "THREAT_DETECTED"
-    return "CLEAN"`
+    title: 'Port Scanner',
+    code: `# Simple Port Scanner
+import socket
+
+def scan_port(target_ip, port):
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(1)
+        result = sock.connect_ex((target_ip, port))
+        sock.close()
+        return "OPEN" if result == 0 else "CLOSED"
+    except:
+        return "ERROR"
+
+# Scan common ports
+common_ports = [22, 80, 443, 8080]
+for port in common_ports:
+    status = scan_port("192.168.1.1", port)
+    print(f"Port {port}: {status}")`
   },
   {
     language: 'bash',
-    title: 'Network Analysis',
-    code: `# Network Forensics
-sudo tcpdump -i eth0 -w capture.pcap
-grep "MALWARE" /var/log/security.log
-nmap -sS -O target_ip`
+    title: 'Log Analyzer',
+    code: `#!/bin/bash
+# Failed login attempt analyzer
+
+echo "Analyzing failed login attempts..."
+grep "Failed password" /var/log/auth.log | \\
+awk '{print $1, $2, $3, $9, $11}' | \\
+sort | uniq -c | sort -nr | head -10
+
+echo "Top failed IPs:"
+grep "Failed password" /var/log/auth.log | \\
+awk '{print $11}' | sort | uniq -c | \\
+sort -nr | head -5`
   },
   {
-    language: 'javascript',
-    title: 'Security Dashboard',
-    code: `// Real-time monitoring
-const monitorThreats = async () => {
-  const alerts = await fetchAlerts();
-  alerts.filter(a => a.severity > 7)
-        .forEach(processAlert);
-};`
+    language: 'python',
+    title: 'Packet Sniffer',
+    code: `# Network Packet Sniffer
+from scapy.all import sniff, IP, TCP, UDP
+
+def packet_handler(packet):
+    if IP in packet:
+        src_ip = packet[IP].src
+        dst_ip = packet[IP].dst
+        protocol = packet[IP].proto
+        
+        if TCP in packet:
+            print(f"TCP: {src_ip}:{packet[TCP].sport} -> {dst_ip}:{packet[TCP].dport}")
+        elif UDP in packet:
+            print(f"UDP: {src_ip}:{packet[UDP].sport} -> {dst_ip}:{packet[UDP].dport}")
+
+# Sniff 10 packets on eth0
+sniff(iface="eth0", prn=packet_handler, count=10)`
   }
 ];
 
