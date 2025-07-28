@@ -75,13 +75,13 @@ export function CodeSnippet() {
   const snippet = codeSnippets[currentSnippet];
 
   return (
-    <div className="relative w-full h-full flex flex-col justify-center p-6">
+    <div className="relative w-full h-full flex flex-col justify-center p-8">
       {/* Terminal Header */}
-      <div className="flex items-center gap-2 mb-4">
-        <div className="w-3 h-3 rounded-full bg-red-500"></div>
-        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-        <div className="w-3 h-3 rounded-full bg-green-500"></div>
-        <span className="text-white/60 text-sm ml-3 font-mono">
+      <div className="flex items-center gap-2 mb-6 pb-3 border-b border-white/10">
+        <div className="w-3 h-3 rounded-full bg-red-500 shadow-sm"></div>
+        <div className="w-3 h-3 rounded-full bg-yellow-500 shadow-sm"></div>
+        <div className="w-3 h-3 rounded-full bg-green-500 shadow-sm"></div>
+        <span className="text-white/70 text-sm ml-4 font-mono font-medium">
           {snippet.title}
         </span>
       </div>
@@ -93,7 +93,7 @@ export function CodeSnippet() {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -20 }}
         transition={{ duration: 0.5 }}
-        className="font-mono text-sm leading-relaxed"
+        className="font-mono text-sm leading-relaxed bg-black/20 rounded-lg p-6 backdrop-blur-sm border border-white/5"
       >
         {snippet.code.split('\n').map((line, index) => (
           <motion.div
@@ -101,18 +101,18 @@ export function CodeSnippet() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: index * 0.1 }}
-            className="text-white/90 mb-1"
+            className="text-white/90 mb-2 flex items-start hover:bg-white/5 rounded px-2 py-1 transition-colors duration-200"
           >
-            <span className="text-cyan-400 mr-3 select-none">
+            <span className="text-cyan-400 mr-4 select-none min-w-[2rem] text-right opacity-60">
               {String(index + 1).padStart(2, '0')}
             </span>
-            <span dangerouslySetInnerHTML={{
+            <span className="flex-1" dangerouslySetInnerHTML={{
               __html: line
                 .replace(/(def |class |import |from |return |if |else |for |while |try |except )/g, '<span class="text-purple-400">$1</span>')
                 .replace(/(\/\/.*|#.*)/g, '<span class="text-green-400">$1</span>')
                 .replace(/(".*?"|'.*?')/g, '<span class="text-yellow-400">$1</span>')
                 .replace(/(const |let |var |function |async |await )/g, '<span class="text-blue-400">$1</span>')
-                .replace(/(sudo |grep |nmap |tcpdump )/g, '<span class="text-red-400">$1</span>')
+                .replace(/(sudo |grep |nmap |tcpdump |awk |sort |uniq |head )/g, '<span class="text-red-400">$1</span>')
             }} />
           </motion.div>
         ))}
