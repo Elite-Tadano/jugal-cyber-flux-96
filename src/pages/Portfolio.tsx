@@ -7,7 +7,7 @@ import { CleanBackground } from '@/components/CleanBackground';
 import { AnimatedText, GlitchText, TypingText } from '@/components/AnimatedText';
 import { SkillTag } from '@/components/SkillTag';
 import { ProjectCard } from '@/components/ProjectCard';
-import { CustomCursor } from '@/components/CustomCursor';
+
 import { CodeSnippet } from '@/components/CodeSnippet';
 import { 
   Shield, 
@@ -108,9 +108,8 @@ export default function Portfolio() {
   };
 
   return (
-    <div ref={containerRef} className="relative min-h-screen bg-background cursor-cyber">
+    <div ref={containerRef} className="relative min-h-screen bg-background">
       <CleanBackground />
-      <CustomCursor />
       
       {/* Hero Section */}
       <section 
